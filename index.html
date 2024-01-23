@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <title>SystemJS IE11 demo</title>
+	<!-- Core-JS Javascript polyfill for IE11 -->
+	<script src="core-js.minified.min.js"></script>
+	<!-- WhatWG-Fetch polyfill needed by SystemJS -->
+    <script src="fetch.umd.js"></script>
+	<!-- System.JS module library -->
+	<script src="system.js"></script>
+	<!-- System.JS named module add-on -->
+	<script src="named-register.js"></script>
+	<!-- Named modules in maps will be loaded when needed only -->
+	<!-- Note: The initial . is compulsory for a relative URL -->
+	<script type="systemjs-importmap">
+	{
+		"imports":{
+			"myNamedModule":"./myNamedModule.js"
+		}
+	}
+	</script>
+	<!-- Named module, always loaded even if not required -->
+    <script type="systemjs-module" src="myOtherNamedModule.js"></script>
+	<!-- A bundle must be loaded directly in the browser -->
+    <script src="myBundle.js"></script>
+	<!-- Main module -->
+    <script src="index.html.js"></script>
+</head>
+<body>
+	<h1>SystemJS IE11 demo</h1>
+	Press F12 to display console.
+</body>
+</html>
